@@ -18,6 +18,8 @@ jobs:
       - name: Login
         run: |
           docker run --name ppiper -it -d ppiper/cf-cli
+          docker exec -it ppiper bash
+          cf login
           
 #       container: ppiper/cf-cli:latest
 #       steps:
