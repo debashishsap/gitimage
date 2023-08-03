@@ -6,15 +6,9 @@ on:
 jobs:
     Docker:
       runs-on: ubuntu-latest
-      container:
-      # image: 'ubuntu:20.04' # can also use this to test
-        image: 'ppiper/cf-cli:latest'           
-        env: 
-          CX_INFRA_IT_CF_USERNAME : ${{ secrets.CF_USERNAME  }}
-          CX_INFRA_IT_CF_PASSWORD : ${{ secrets.CF_PASSWORD  }}
-#       container: ppiper/cf-cli:latest
-#       steps:
-#       - name: Piper
-#         shell: bash
-#         run: |
-#           cf login
+      container: ppiper/cf-cli:latest
+      steps:
+      - name: Piper
+        shell: bash
+        run: |
+          docker ps -a
