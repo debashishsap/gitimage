@@ -6,8 +6,17 @@ on:
 jobs:
     Docker:
       runs-on: ubuntu-latest
-      container: ppiper/cf-cli:latest
       steps:
-      - name: Piper        
-        run: |
-          docker run ppiper/cf-cli cf --help
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure CF
+        uses: docker://ppiper/cf-cli:latest
+        with:
+          CX_INFRA_IT_CF_USERNAME: ${{ secrets.CF_USERNAME }}
+          CX_INFRA_IT_CF_PASSWORD: ${{ secrets.CF_PASSWORD }}
+#       container: ppiper/cf-cli:latest
+#       steps:
+#       - name: Piper        
+#         run: |
+#           docker run ppiper/cf-cli cf --help
