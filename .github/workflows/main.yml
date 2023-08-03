@@ -11,4 +11,4 @@ jobs:
       - name: Piper
         shell: bash
         run: |
-          docker ps -a
+          ls
