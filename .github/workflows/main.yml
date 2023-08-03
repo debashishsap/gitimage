@@ -14,7 +14,10 @@ jobs:
         uses: docker://ppiper/cf-cli:latest
         with:
           CX_INFRA_IT_CF_USERNAME: ${{ secrets.CF_USERNAME }}
-          CX_INFRA_IT_CF_PASSWORD: ${{ secrets.CF_PASSWORD }}
+          CX_INFRA_IT_CF_PASSWORD: ${{ secrets.CF_PASSWORD }}        
+      - name: Login
+        run: cf -v
+          
 #       container: ppiper/cf-cli:latest
 #       steps:
 #       - name: Piper        
